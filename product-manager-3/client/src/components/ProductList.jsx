@@ -12,23 +12,31 @@ const ProductList = (props) => {
 	};
 
 	return (
-		<div className="text-center mt-5">
+		<div className="mt-5 d-flex flex-column align-items-center">
 			<h2>All Products</h2>
-			<div className="mt-3">
-				{props.products.map((product, idx) => {
-					return (
-						<div className="d-flex gap-2 align-items-center justify-content-center">
-							<p className="mb-3 fs-4" key={idx}>
-								<Link to={`/products/${product._id}`} className="text-white">
-									{product.title}
-								</Link>
-							</p>
-							<button className="btn btn-sm btn-danger" onClick={(e) => deleteProduct(product._id)}>
-								Delete
-							</button>
-						</div>
-					);
-				})}
+			<div className="mt-3" style={{ width: 500 }}>
+				<table className="table table-bordered text-center fs-4">
+					<tbody>
+						{props.products.map((product, idx) => {
+							return (
+								<tr key={idx}>
+									<td>
+										<Link to={`/products/${product._id}`} className="text-white">
+											{product.title}
+										</Link>
+									</td>
+									<td>
+										<button
+											className="btn btn-sm btn-danger"
+											onClick={(e) => deleteProduct(product._id)}>
+											Delete
+										</button>
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
 			</div>
 		</div>
 	);
