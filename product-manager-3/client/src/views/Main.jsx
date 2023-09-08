@@ -21,12 +21,16 @@ const Main = () => {
 		fetchProducts();
 	}, []);
 
+	const removeFromDom = (productId) => {
+		setProducts(products.filter((product) => product._id != productId));
+	};
+
 	return (
 		<div className="mt-5">
 			<h2 className="text-center ">Product Manager</h2>
 			<ProductForm fetchProducts={fetchProducts} />
 			<hr />
-			{loaded && <ProductList products={products} />}
+			{loaded && <ProductList products={products} removeFromDom={removeFromDom} />}
 		</div>
 	);
 };
