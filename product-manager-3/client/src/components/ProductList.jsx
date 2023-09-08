@@ -14,7 +14,7 @@ const ProductList = (props) => {
 	return (
 		<div className="mt-5 d-flex flex-column align-items-center">
 			<h2>All Products</h2>
-			<div className="mt-3" style={{ width: 500 }}>
+			<div className="mt-3" style={{ width: 600 }}>
 				<table className="table table-bordered text-center fs-4">
 					<tbody>
 						{props.products.map((product, idx) => {
